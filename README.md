@@ -1,4 +1,4 @@
-# KeepTeamsGreen
+# Keep Teams Green v1.0
 
 ## Overview
 KeepTeamsGreen is a tool designed to keep your Microsoft Teams status green by simulating mouse movements. This ensures that your status remains active and prevents it from automatically switching to "Away".
