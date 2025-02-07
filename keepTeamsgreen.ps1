@@ -23,7 +23,7 @@ for ($i = 0; $i -lt 12; $i++) {
             Write-Host "keep moving..." -ForegroundColor green
             Write-Host $hashes -ForegroundColor Green
             Write-Host (" " * $i + $frame) -NoNewline -ForegroundColor Green
-            Start-Sleep -Milliseconds 100
+            Start-Sleep -Milliseconds 50
         }
     }
     # Add a new hash every 10 seconds
