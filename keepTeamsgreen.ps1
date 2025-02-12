@@ -36,7 +36,7 @@ while ($true) {
     using System;
     using System.Runtime.InteropServices;
     public class MouseJiggler {
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = StdCall)]
         public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
         public static void Jiggle() {
             mouse_event(0x0001, 1, 0, 0, 0); // Maus bewegen
@@ -48,6 +48,19 @@ while ($true) {
     [MouseJiggler]::Jiggle()
 
     # Alle 2 Minuten ausführen
-    Write-Host "keep moving..." -foregroundcolor green
-    Start-Sleep -Seconds 10
+    $startTime = Get-Date
+    while ((Get-Date) - $startTime -lt [TimeSpan]::FromSeconds(120)) {
+        $innerStartTime = Get-Date
+        while ((Get-Date) - $innerStartTime -lt [TimeSpan]::FromSeconds(10)) {
+            foreach ($frame in $frames) {
+                Clear-Host
+                Write-Host "keep moving..." -ForegroundColor green
+                Write-Host $hashes -ForegroundColor Green
+                Write-Host $frame -NoNewline -ForegroundColor Green
+                Start-Sleep -Milliseconds 50
+            }
+        }
+        # Add a new hash every 10 seconds
+        $hashes += "#"
+    }
 }
