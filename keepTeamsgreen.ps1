@@ -1,5 +1,6 @@
 Write-Host  "Bewege die Maus alle 120 Sekunden um 1 Pixel hin und her" -ForegroundColor green
 # Frames for the spinning wheel animation
+#v1.2
 $frames = @(
     "|",
     "/",
