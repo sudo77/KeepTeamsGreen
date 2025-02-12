@@ -31,22 +31,14 @@ for ($i = 0; $i -lt 12; $i++) {
     $hashes += "#"
 }
 
+Add-Type -AssemblyName System.Windows.Forms
+
 while ($true) {
     # Bewege die Maus um 1 Pixel hin und her
-    Add-Type -TypeDefinition @"
-    using System;
-    using System.Runtime.InteropServices;
-    public class MouseJiggler {
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = StdCall)]
-        public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
-        public static void Jiggle() {
-            mouse_event(0x0001, 1, 0, 0, 0); // Maus bewegen
-            mouse_event(0x0001, -1, 0, 0, 0); // Maus zurückbewegen
-        }
-    }
-"@
-
-    [MouseJiggler]::Jiggle()
+    $pos = [System.Windows.Forms.Cursor]::Position
+    [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($pos.X + 1, $pos.Y)
+    Start-Sleep -Milliseconds 100
+    [System.Windows.Forms.Cursor]::Position = $pos
 
     # Alle 2 Minuten ausführen
     $startTime = Get-Date
