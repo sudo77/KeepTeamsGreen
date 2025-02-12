@@ -30,7 +30,6 @@ for ($i = 0; $i -lt 12; $i++) {
     $hashes += "#"
 }
 
-
 while ($true) {
     # Bewege die Maus um 1 Pixel hin und her
     Add-Type -TypeDefinition @"
@@ -48,7 +47,7 @@ while ($true) {
 
     [MouseJiggler]::Jiggle()
 
-    # Alle 5 Minuten ausführen
+    # Alle 2 Minuten ausführen
     Write-Host "keep moving..." -foregroundcolor green
-    Start-Sleep -Seconds 120
+    Start-Sleep -Seconds 10
 }
