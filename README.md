@@ -15,7 +15,7 @@ KeepTeamsGreen is a tool designed to keep your Microsoft Teams status green by s
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/schmidsebas/KeepTeamsGreen.git
+    git clone https://github.com/sudo77/KeepTeamsGreen.git
     ```
 2. Navigate to the project directory:
     ```sh
