@@ -43,7 +43,7 @@ while ($true) {
         foreach ($frame in $frames) {
             # Anzeige aktualisieren
             Clear-Host
-            Write-Host "Bewege die Maus alle 120 Sekunden um 10 Pixel hin und her (Win32 API)" -ForegroundColor Green
+            Write-Host "Bewege die Maus alle 120 Sekunden um 100 Pixel hin und her (Win32 API)" -ForegroundColor Green
 
             $elapsed = (Get-Date) - $scriptStartTime
             $runtime = "You have been green for {0:D2} minute(s) and {1:D2} second(s)!" -f $elapsed.Minutes, $elapsed.Seconds
